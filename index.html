@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Clipperie – Un live de deux heures devient trente clips verticaux</title>
+<meta name="description" content="Dépose ton live ou ton podcast : Clipperie repère les moments forts et les découpe en clips verticaux sous-titrés. Accès anticipé, liste d'attente gratuite.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Clipperie – Un live de deux heures devient trente clips verticaux">
+<meta property="og:description" content="Moments forts repérés, découpe verticale, sous-titres. Rejoins la liste d'attente.">
+<meta property="og:image" content="https://VOTRE-SITE.vercel.app/og.png">
+<meta property="og:url" content="https://VOTRE-SITE.vercel.app/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="/">Clipperie<span>.</span></a></div></header>
+<main class="wrap">
+  <p class="tag">Création de contenu</p>
+  <h1>Un live de deux heures devient <em>trente clips verticaux.</em></h1>
+  <p class="lead">Podcasteur, streamer ou formateur : tu as des heures de contenu qui dorment. Clipperie les transforme en clips courts, sous-titrés, prêts à publier.</p>
+
+  <form id="f" novalidate>
+    <input type="hidden" name="access_key" value="daae3115-164c-4202-9960-c62b82806376">
+    <input type="hidden" name="subject" value="Nouvelle inscription Clipperie">
+    <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+    <label for="e" class="note">Ton adresse email</label>
+    <input id="e" type="email" name="email" inputmode="email" autocomplete="email" placeholder="toi@exemple.com" required>
+    <button id="b" type="submit">Je veux l'accès anticipé</button>
+    <p id="m" class="msg" role="status"></p>
+  </form>
+  <p class="note">Clipperie est en construction. Tu rejoins une liste d'attente gratuite : aucun paiement, aucune carte. Le prix te sera annoncé avant tout achat.</p>
+
+  <section>
+    <h2>Le problème</h2>
+    <p class="lead">Découper un long enregistrement à la main prend souvent une journée entière. Alors on ne le fait pas, et rien ne sort en format court, celui qui amène de nouvelles audiences.</p>
+  </section>
+
+  <section>
+    <h2>Comment ça marchera</h2>
+    <ol class="steps">
+      <li><b>Tu déposes ton fichier ou ton lien</b><span>Le contenu est transcrit automatiquement.</span></li>
+      <li><b>Les moments forts sont repérés</b><span>Découpe en clips verticaux de 30 à 60 secondes.</span></li>
+      <li><b>Sous-titres et titre pour chaque clip</b><span>Export par lot, prêt à publier.</span></li>
+    </ol>
+  </section>
+</main>
+<footer><div class="wrap"><a href="/mentions-legales.html">Mentions légales</a><a href="/confidentialite.html">Confidentialité</a></div></footer>
+<script>
+var f=document.getElementById('f'),m=document.getElementById('m'),b=document.getElementById('b');
+f.addEventListener('submit',function(ev){ev.preventDefault();
+var e=f.email.value.trim();
+if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e)){m.className='msg err';m.textContent="Cette adresse n'a pas l'air correcte.";return}
+b.disabled=true;m.className='msg';m.textContent='Envoi…';
+fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(f)))})
+.then(function(r){return r.json()}).then(function(j){
+ if(j.success){m.className='msg ok';m.textContent="C'est noté. Tu seras prévu·e en premier.";f.email.value=''}
+ else throw 0
+}).catch(function(){m.className='msg err';m.textContent="Un souci est survenu. Réessaie dans un instant.";b.disabled=false}).finally(function(){b.disabled=false});
+});
+</script>
+</body></html>

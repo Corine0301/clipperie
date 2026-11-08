@@ -1,0 +1,32 @@
+:root{--bg:#07120c;--bg2:#0d1f14;--ink:#f3f6f1;--mute:#9db0a2;--g:#3ddc66;--line:#1c3324}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font:18px/1.55 "Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;min-height:100vh;display:flex;flex-direction:column}
+.wrap{width:100%;max-width:640px;margin:0 auto;padding:0 20px}
+header{padding:20px 0}
+.logo{font-weight:800;font-size:22px;letter-spacing:-.02em;text-decoration:none;color:var(--ink)}
+.logo span{color:var(--g)}
+.tag{font:600 13px/1 ui-monospace,Menlo,Consolas,monospace;color:var(--g);text-transform:uppercase;letter-spacing:.08em}
+h1{font-size:clamp(38px,11vw,60px);line-height:1.02;letter-spacing:-.035em;font-weight:800;margin:16px 0 18px}
+h1 em{font-style:normal;color:var(--g)}
+.lead{color:var(--mute);font-size:19px}
+form{margin:28px 0 10px;display:grid;gap:12px}
+input[type=email]{width:100%;height:58px;border-radius:14px;border:2px solid var(--line);background:var(--bg2);color:var(--ink);font:inherit;padding:0 18px}
+input[type=email]:focus{outline:none;border-color:var(--g)}
+button{height:60px;border:0;border-radius:14px;background:var(--g);color:#04120a;font-family:inherit;font-weight:800;font-size:20px;cursor:pointer}
+button:disabled{opacity:.6}
+.note{color:var(--mute);font-size:14px}
+.msg{min-height:24px;font-weight:600}
+.msg.ok{color:var(--g)}.msg.err{color:#ff8a7a}
+section{padding:36px 0;border-top:1px solid var(--line);margin-top:28px}
+h2{font-size:28px;letter-spacing:-.02em;line-height:1.1;margin-bottom:18px}
+.steps{list-style:none;padding:0;display:grid;gap:16px;counter-reset:s}
+.steps li{counter-increment:s;background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:18px 18px 18px 64px;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:18px;top:16px;width:32px;height:32px;border-radius:50%;background:var(--g);color:#04120a;font-weight:800;display:grid;place-items:center}
+.steps b{display:block;font-size:20px}
+.steps span{color:var(--mute);font-size:16px}
+footer{margin-top:auto;border-top:1px solid var(--line);padding:22px 0;color:var(--mute);font-size:14px}
+footer a{color:var(--mute);margin-right:16px}
+.page h1{font-size:34px}.page h2{font-size:22px;margin:26px 0 8px}.page p,.page li{color:var(--mute);margin-bottom:10px;font-size:16px}
+.fill{background:#3a3200;color:#ffe14d;padding:0 5px;border-radius:4px;font-weight:700}
+a{color:var(--g)}
